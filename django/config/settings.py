@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # .env 파일을 로드
-load_dotenv(os.path.join(BASE_DIR, '.env'))
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 # 서비스 배포시 수정해야함.
 SECRET_KEY = "django-insecure-dev-only-placeholder-change-me"
