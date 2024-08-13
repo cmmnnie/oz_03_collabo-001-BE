@@ -5,4 +5,4 @@ SECRET_KEY = "django-insecure-dev-only-placeholder-change-me"
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
