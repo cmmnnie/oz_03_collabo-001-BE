@@ -1,7 +1,7 @@
 import os
 
 import requests
-from rest_framework import status
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
@@ -14,6 +14,8 @@ User = get_user_model()
 
 # 구글 소셜로그인
 class GoogleExchangeCodeForToken(APIView):
+    permission_classes = [AllowAny]
+
     # 인가코드를 엔드포인트로 정보 담아서 보내는 코드
     def post(self, request):
         code = request.data.get("code")
@@ -91,6 +93,9 @@ class GoogleExchangeCodeForToken(APIView):
 
 class GoogleSocialLogout(APIView):
     # 로그아웃 - 쿠키에서 토큰을 삭제하는 코드
+    # 고쳐오기
+    permission_classes = [IsAuthenticated]
+
     def post(self, request):
         response = JsonResponse({"message": "Successfully logged out"})
 
